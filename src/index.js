@@ -4,9 +4,9 @@ import {BrowserRouter} from 'react-router-dom';
 import {createTheme} from '@mui/material';
 import {ThemeProvider} from '@mui/styles';
 import { Provider } from 'react-redux';
-
 import store from './app/store';
 import App from './components/App';
+import './index.css';
 
 const theme = createTheme({});
 
