@@ -19,8 +19,6 @@ const NavBar = () => {
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
   const dispatch = useDispatch();
 
-  console.log(user);
-
   useEffect(() => {
     const logInUser = async () => {
       if(token) {

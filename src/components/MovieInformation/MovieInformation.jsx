@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from '@mui/material'
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, Remove, ArrowBack, FavoriteBorderOutlined  } from '@mui/icons-material'
 import { Link, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
+import { useDispatch } from 'react-redux'
 import { useGetMovieQuery, useGetRecommendationsQuery } from '../../services/TMDB'
 import useStyles from './styles';
 import genreIcons from '../../assets/genres';
 import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
-import {MovieList} from '..'
+import {MovieList} from '..';
+
 const MovieInformation = () => {
   const [open, setOpen] = useState(false);
   const {id} = useParams();
