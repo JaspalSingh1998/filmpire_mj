@@ -25,11 +25,11 @@ const demoCategories = [
 ];
 
 const Sidebar = ({setMobileOpen}) => {
+  const {genreIdOrCategoryName} = useSelector((state) => state.currentGenreOrCategory);
   const theme = useTheme();
   const classes = useStyles();  
   const {data, error, isFetching} = useGetGenresQuery();
   const dispatch = useDispatch();
-  
   return (
       <>
         <Link to='/' className={classes.imageLink}>
@@ -62,7 +62,7 @@ const Sidebar = ({setMobileOpen}) => {
                 </Box>) 
                 : (data.genres.map(({id, name}) => (
                 <Link key={id} className={classes.links} to="/">
-                    <ListItem onClick={() => {}} button>
+                    <ListItem onClick={() => dispatch(selectGenreOrCategory(id))} button>
                         <ListItemIcon>
                             <img src={genreIcons[name.toLowerCase()]} alt="GenreImage" className={classes.genreImages} height={30}/>
                         </ListItemIcon>
