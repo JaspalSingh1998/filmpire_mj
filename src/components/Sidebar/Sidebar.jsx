@@ -17,12 +17,6 @@ const categories = [
     {label: 'Top Rated', value: 'top_rated'},
     {label: 'Upcoming', value: 'upcoming'},
 ];
-const demoCategories = [
-    {label: 'Comedy', value: 'comedy'},
-    {label: 'Action', value: 'action'},
-    {label: 'Horror', value: 'horror'},
-    {label: 'Animation', value: 'animation'},
-];
 
 const Sidebar = ({setMobileOpen}) => {
   const {genreIdOrCategoryName} = useSelector((state) => state.currentGenreOrCategory);
