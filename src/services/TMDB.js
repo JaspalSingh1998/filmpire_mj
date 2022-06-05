@@ -36,6 +36,14 @@ export const tmdbApi = createApi({
                 return `/movie/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}`
             }
         }),
+
+        // * Get Favorited and Watchlisted Movies
+        getList: builder.query({
+            query: ({listName, accountId, sessionId, page}) => {
+                return `account/${accountId}/${listName}?api_key=${tmdbApiKey}&session_id=${sessionId}&page=${page}`;
+            }
+        }),
+
         // * Get User Specific Lists
         getRecommendations: builder.query({
             query: ({movie_id, list}) => {
@@ -58,4 +66,4 @@ export const tmdbApi = createApi({
     })
 })
 
-export const { useGetMoviesQuery, useGetGenresQuery, useGetMovieQuery, useGetRecommendationsQuery, useGetActorQuery, useGetMoviesByActorQuery } = tmdbApi;
+export const { useGetMoviesQuery, useGetGenresQuery, useGetMovieQuery, useGetRecommendationsQuery, useGetActorQuery, useGetMoviesByActorQuery, useGetListQuery } = tmdbApi;

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { AppBar, IconButton, Drawer, Button, Avatar, Toolbar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import useStyles from './styles';
 import {Sidebar, Search} from '../index';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, userSelector } from '../../features/auth';
+import { ColorModeContext } from '../../utils/ToggleDarkMode';
 
 const NavBar = () => {
   const {isAuthenticated, user} = useSelector(userSelector);
@@ -18,6 +19,7 @@ const NavBar = () => {
   const token = localStorage.getItem('request_token');
   const sessionIdFromLocalStorage = localStorage.getItem('session_id');
   const dispatch = useDispatch();
+  const colorMode = useContext(ColorModeContext);
 
   useEffect(() => {
     const logInUser = async () => {
@@ -54,7 +56,7 @@ const NavBar = () => {
           <IconButton
             color="inherit"
             sx={{ml: 1}}
-            onClick={()=>{}}
+            onClick={colorMode.toggleColorMode}
           >
            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
